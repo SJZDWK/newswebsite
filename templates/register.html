@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register page</title>
+    <link rel="stylesheet" href="{% static 'css/semantic.css' %}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div class="ui basic segment container content">
+      <h1 class="ui center aligned header">Register</h1>
+      <form class="ui form error" method="post">
+        {% if form.errors %}
+          <div class="ui error message">
+              {{ form.errors }}
+          </div>
+        {% endif %}
+        <div class="field">
+          <div class="ui  image top">
+            <img src="{% static 'images/login/usericon.png' %}" alt="" />
+          </div>
+          {{form.username}}
+        </div>
+        <div class="field">
+          <div class="ui  image top">
+            <img src="{% static 'images/login/checkboxicon.png' %}" alt="" />
+          </div>
+          {{form.email}}
+        </div>
+        <div class="field">
+          <div class="ui  image top">
+            <img src="{% static 'images/login/lockicon.png' %}" alt="" />
+          </div>
+          {{form.password}}
+        </div>
+        <div class="field">
+          <div class="ui  image top">
+            <img src="{% static 'images/login/lockicon.png' %}" alt="" />
+          </div>
+          {{form.password_confirm}}
+        </div>
+        {% csrf_token %}
+        <div class="field">
+          <button type="submit" class="ui red button register">Register</button>
+        </div>
+        <div class="item">
+            <a href="{% url 'login' %}"><div class="ui image">
+                <img src="{% static 'images/index/login.png' %}" alt="" />
+            </div>
+            <p style="margin-right:10px;margin-top:6px;color:black;">Login</p>
+            </a>
+
+          </div>
+      </form>
+    </div>
+    <div class="ui basic segment container footer">
+      <div class="bottom">
+        <div class="ui divider"></div>
+        <button type="button" name="button" class="ui circular red button backtoindex">
+            <img src="{% static 'images/login/homeicon.png' %}" style="position:absolute;left:18%;top:10%;">
+            <h4>Index</h4>
+        </button>
+        <div class="ui image title">
+            <img src="{% static 'images/login/zhiribao.png' %}" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
